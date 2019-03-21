@@ -1,0 +1,12 @@
+<%=provide(:title, "New Testimonial")%>
+<div class="panel panel-default">
+<div class="panel-heading">
+
+<h1>New Testimonial</h1>
+</div>
+<div class="panel-body">
+<%= render 'form', testimonial: @testimonial %>
+
+<%= link_to 'Back', testimonials_path %>
+</div>
+</div>

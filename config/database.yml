@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: tidySpaces_production
-  username: tidySpaces
-  password: <%= ENV['TIDYSPACES_DATABASE_PASSWORD'] %>
+  username: ubuntu
+  password: <%= ENV['PRONOW_DATABASE_PASSWORD'] %>
