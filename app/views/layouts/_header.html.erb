@@ -6,13 +6,21 @@
                       <ul class="nav navbar-nav navbar-right">
                       <li><%= link_to "Tidy Spaces", root_path, class:"navbar-brand"%></li>
     <li><%=link_to (image_tag("diamond.png", alt: "Tidy Spaces", size: "40x40")), root_path%></li>
-
-                        <li><%= link_to "Home", root_path, class:"btn btn-secondary"%></li>
-                        <li><%= link_to "About", about_path, class:"btn btn-secondary" %></li>
-                        <li><%= link_to "Contact", contact_path, class:"btn btn-secondary" %></li>
-                        <li><%= link_to "Testimonials", testimonials_path, class:"btn btn-secondary" %></li>
-                        <li><%= link_to "Log in", login_path, class:"btn btn-secondary" %></li>
-                        <li><%= link_to "Sign up", users_new_path, class:"btn btn-secondary" %></li>
+    <% if logged_in? %>
+      <li><%= link_to "Home", root_path, class:"btn btn-secondary"%></li>
+      <li><%= link_to "About", about_path, class:"btn btn-secondary" %></li>
+      <li><%= link_to "Contact", contact_path, class:"btn btn-secondary" %></li>
+      <li><%= link_to "Testimonials", testimonials_path, class:"btn btn-secondary" %></li>
+      <li><%= link_to "Profile", current_user %></li>
+      <li><%= link_to "Sign out", logout_path, method: :delete%></li>
+    <% else %>
+      <li><%= link_to "Home", root_path, class:"btn btn-secondary"%></li>
+      <li><%= link_to "About", about_path, class:"btn btn-secondary" %></li>
+      <li><%= link_to "Contact", contact_path, class:"btn btn-secondary" %></li>
+      <li><%= link_to "Testimonials", testimonials_path, class:"btn btn-secondary" %></li>
+      <li><%= link_to "Log in", login_path, class:"btn btn-secondary" %></li>
+      <li><%= link_to "Sign up", users_new_path, class:"btn btn-secondary" %></li>
+    <% end %>
                 </ul>
               </nav>
       </div>
