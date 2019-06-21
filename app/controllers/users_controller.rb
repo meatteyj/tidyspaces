@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   before_action :logged_in_user, only: [:edit, :update, :index]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user_edit, only: [:edit, :update]
   before_action :correct_user_destroy, only: [:destroy]
   # GET /users
   # GET /users.json
@@ -87,9 +87,12 @@ class UsersController < ApplicationController
         redirect_to login_url
       end
     end
-    def correct_user
+    def correct_user_edit
       @user = User.find(params[:id])
-      redirect_to(root_url) unless @user == current_user
+      unless @user == current_user
+        flash[:danger] = "You do not have permission to edit this profile."
+        redirect_to users_url
+      end
     end
     def correct_user_destroy
       @user = User.find(params[:id])
