@@ -3,11 +3,11 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :index]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :correct_user_edit, only: [:edit, :update]
-  before_action :correct_user_destroy, only: [:destroy]
+  before_action :admin_user_destroy, only: [:destroy]
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
   end
 
   # GET /users/1
@@ -94,11 +94,11 @@ class UsersController < ApplicationController
         redirect_to users_url
       end
     end
-    def correct_user_destroy
+    def admin_user_destroy
       @user = User.find(params[:id])
-      unless @user == current_user
+      unless current_user.admin?
         flash[:danger] = "You do not have permission to delete this user."
-        redirect_to login_url
+        redirect_to users_url
       end
     end
 end

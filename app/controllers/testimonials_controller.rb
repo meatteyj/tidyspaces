@@ -67,6 +67,7 @@ class TestimonialsController < ApplicationController
       @testimonial = Testimonial.find(params[:id])
     end
 
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def testimonial_params
       params.require(:testimonial).permit(:content, :user_id)

@@ -1,2 +1,3 @@
 class Testimonial < ApplicationRecord
+
 end
