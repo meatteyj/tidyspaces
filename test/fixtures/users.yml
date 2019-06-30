@@ -4,8 +4,14 @@ james:
   name: "james"
   email: "james@test.com"
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+  admin: false
 
 Queen:
   name: "freddy"
   email: "fmercury@queen.com"
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+  admin: false
