@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+my_first:
+  content: "Dude I am at a loss for words"
+  created_at: <%= 10.minutes.ago %>
+hey_mom:
+  content: "Hi mom how are you"
+  created_at: <%= 1.3.hours.ago %>
+most_recent:
+  content: "This is the most recent post"
+  created_at: <%= Time.zone.now %>

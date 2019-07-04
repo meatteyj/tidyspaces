@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :testimonials
   resources :password_resets, only: [:new, :edit, :update, :create]
+  resources :microposts, only: [:create, :destroy]
   get 'users/new'
   root 'static_pages#home'
   get '/about', to: 'static_pages#about'
