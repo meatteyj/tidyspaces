@@ -1,15 +1,25 @@
 <%=provide(:title, "Home")%>
 <% if logged_in? %>
+
+
+
   <div class="row">
-    <aside class="col-xs-6 col-md-4">
+    <aside class="col-xs-6 col-md-6">
       <section class="user_info">
         <%= render 'shared/user_info'%>
       </section>
       <section class="micropost_form">
-        <%= render 'shared/micropost_form' %>
+        <%= render 'shared/micropost_form'%>
       </section>
     </aside>
+    <div class="col-sm-6">
+      <h3>Micropost Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
   </div>
+
+
+
 <% else %>
 <div class="jumbotron">
 <div class="panel panel-default">
@@ -21,9 +31,15 @@
   <div id="div2" class="panel-body">
 
     <p id="para1">The new CregsList...</p>
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Contact
+</button>
 
-
-    <%=link_to "Contact", contact_path, class:"btn btn-primary"%>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <%= render 'shared/modal'%>
+</div>
   </div>
 </div>
 </div>

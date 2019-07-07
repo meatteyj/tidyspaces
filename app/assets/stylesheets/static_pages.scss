@@ -5,6 +5,7 @@ $gray-medium-light: #eaeaea;
 $gray-light: #eaeaea;
 $gray: #eaeaea;
 $gray-darker: #eaeaea;
+$pink: #FD6EA7;
 /* universal */
 
 body {
@@ -72,13 +73,13 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
+  color: $pink;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
+  padding-top: 20px;
   font-weight: bold;
   &:hover {
-    color: white;
+    color: red;
     text-decoration: none;
   }
 }
